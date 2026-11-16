@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F7F4EE">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex">
+  <title>Carte domande</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Carte CdG">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app" class="app">
+    <section id="card" class="card" data-deck="">
+      <div class="band">
+        <span id="band-name" class="band-name"></span>
+        <button id="menu-btn" class="menu-btn" type="button" aria-label="Menu" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+          <span id="menu-dot" class="menu-dot" hidden></span>
+        </button>
+      </div>
+      <div id="card-body" class="card-body" aria-live="polite">
+        <p class="placeholder">Caricamento…</p>
+      </div>
+    </section>
+
+    <p id="notice" class="notice" role="status" hidden></p>
+
+    <div class="controls">
+      <button id="back-btn" class="back-btn" type="button" disabled>&#8630;&#xFE0E; Torna alla precedente</button>
+      <button class="deck-btn" type="button" data-deck="leggero" disabled><b>Leggero</b><span class="count"></span></button>
+      <button class="deck-btn" type="button" data-deck="medio" disabled><b>Medio</b><span class="count"></span></button>
+      <button class="deck-btn" type="button" data-deck="personale" disabled><b>Personale</b><span class="count"></span></button>
+    </div>
+  </main>
+
+  <section id="check" class="check" hidden></section>
+
+  <dialog id="menu" class="menu" aria-labelledby="menu-title">
+    <div class="menu-inner">
+      <h2 id="menu-title">Menu</h2>
+      <button id="update-btn" class="menu-item" type="button">Aggiorna domande</button>
+      <p id="update-msg" class="menu-msg" role="status"></p>
+      <button id="import-toggle" class="menu-item" type="button" aria-expanded="false">Importa domande su questo telefono</button>
+      <div id="import-box" class="import-box" hidden>
+        <p class="small">Incolla un elenco (righe "# Leggero", "# Medio", "# Personale" e sotto una domanda per riga) oppure scegli un file CSV. Resta solo su questo telefono.</p>
+        <textarea id="import-text" rows="6" aria-label="Testo delle domande da importare"></textarea>
+        <label class="file-label">Scegli un file CSV <input id="import-file" type="file" accept=".csv,.txt,text/csv,text/plain"></label>
+        <button id="import-apply" class="menu-item primary" type="button">Usa queste domande</button>
+        <p id="import-msg" class="menu-msg" role="status"></p>
+      </div>
+      <button id="import-clear" class="menu-item" type="button" hidden>Torna al file condiviso</button>
+      <a class="menu-item" href="./?controllo">Controlla l'elenco domande</a>
+      <button id="reset-btn" class="menu-item danger" type="button">Azzera questo telefono</button>
+      <p id="info" class="info"></p>
+      <button id="menu-close" class="menu-item" type="button">Chiudi</button>
+    </div>
+  </dialog>
+
+  <script src="core.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

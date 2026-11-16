@@ -1,0 +1,11 @@
+{
+  "name": "carte-domande-cdg",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Carte domande per lo speed date del CdG. Nessuna dipendenza.",
+  "scripts": {
+    "test": "node --test test/",
+    "start": "node tools/serve.js 8080",
+    "icons": "node tools/make-icons.js"
+  }
+}
